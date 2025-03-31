@@ -1,100 +1,92 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jackson - Atención al Cliente</title>
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <div class="container" id="Inicio"> </div>
-    <header>
-        <h1>Jackson T-Shirts</h1>
-    </header>
+<div class="container" id="Inicio"></div>
+<header>
+    <h1>Jackson T-Shirts</h1>
+</header>
 
-    <nav>
-        <ul class="contenedor">
-            <li>
-                <a href="index.html">Inicio</a>
-            </li>
-            <li>
-                <a href="atencion_al_cliente.html">Atención al Cliente</a>
-            </li>
-            <li>
-                <a href="about_us.html">Sobre Nosotros
-                </a>
-            </li>
-        </ul>
-    </nav>
+<nav>
+    <ul class="contenedor">
+        <li>
+            <a th:href="@{/jackson}">Inicio</a>
+        </li>
+        <li>
+            <a th:href="@{/atencion_al_cliente}">Atención al Cliente</a>
+        </li>
+        <li>
+            <a th:href="@{/about_us}">Sobre Nosotros</a>
+        </li>
+    </ul>
+</nav>
 
-    <section class="info-section">
-        <div class="container">
-            <h2>Descubre Nuestra Colección Exclusiva</h2>
-            <div class="content">
-                <img src="../static/images/des.jpg" alt="Camisetas Exclusivas">
-                <p>
-                    En <b>Jackson T-Shirts</b>, creamos camisetas únicas con materiales de alta calidad y diseños exclusivos. 
-                    Nuestra colección combina estilo y comodidad para que siempre luzcas increíble. 
-                    Explora nuestros modelos y encuentra la camiseta perfecta para ti.
-                </p>
-            </div>
+<section class="info-section">
+    <div class="container">
+        <h2>Descubre Nuestra Colección Exclusiva</h2>
+        <div class="content">
+            <img th:src="@{/images/des.jpg}" alt="Camisetas Exclusivas">
+            <p>
+                En <b>Jackson T-Shirts</b>, creamos camisetas únicas con materiales de alta calidad y diseños exclusivos.
+                Nuestra colección combina estilo y comodidad para que siempre luzcas increíble.
+                Explora nuestros modelos y encuentra la camiseta perfecta para ti.
+            </p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="tallaje-section">
-        <div class="container">
-            <h2>Guía de Tallas</h2>
-            <p>Consulta nuestra tabla de tallas para encontrar la medida perfecta.</p>
-            <table class="tallaje-table">
-                <thead>
-                    <tr>
-                        <th>Talla</th>
-                        <th>Pecho (cm)</th>
-                        <th>Cintura (cm)</th>
-                        <th>Longitud (cm)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>S</td>
-                        <td>86 - 91</td>
-                        <td>71 - 76</td>
-                        <td>65</td>
-                    </tr>
-                    <tr>
-                        <td>M</td>
-                        <td>96 - 101</td>
-                        <td>81 - 86</td>
-                        <td>68</td>
-                    </tr>
-                    <tr>
-                        <td>L</td>
-                        <td>106 - 111</td>
-                        <td>91 - 96</td>
-                        <td>71</td>
-                    </tr>
-                    <tr>
-                        <td>XL</td>
-                        <td>116 - 121</td>
-                        <td>101 - 106</td>
-                        <td>74</td>
-                    </tr>
-                    <tr>
-                        <td>XXL</td>
-                        <td>127 - 132</td>
-                        <td>111 - 116</td>
-                        <td>77</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-    
-    
-    
-    
-
-
-
+<section class="tallaje-section">
+    <div class="container">
+        <h2>Guía de Tallas</h2>
+        <p>Consulta nuestra tabla de tallas para encontrar la medida perfecta.</p>
+        <table class="tallaje-table">
+            <thead>
+            <tr>
+                <th>Talla</th>
+                <th>Pecho (cm)</th>
+                <th>Cintura (cm)</th>
+                <th>Longitud (cm)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>S</td>
+                <td>86 - 91</td>
+                <td>71 - 76</td>
+                <td>65</td>
+            </tr>
+            <tr>
+                <td>M</td>
+                <td>96 - 101</td>
+                <td>81 - 86</td>
+                <td>68</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>106 - 111</td>
+                <td>91 - 96</td>
+                <td>71</td>
+            </tr>
+            <tr>
+                <td>XL</td>
+                <td>116 - 121</td>
+                <td>101 - 106</td>
+                <td>74</td>
+            </tr>
+            <tr>
+                <td>XXL</td>
+                <td>127 - 132</td>
+                <td>111 - 116</td>
+                <td>77</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 </body>
 </html>

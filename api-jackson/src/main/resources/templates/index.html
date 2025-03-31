@@ -1,119 +1,97 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jackson - Tienda de Camisetas</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <div class="container" id="Inicio"> </div>
-    <header>
-        <h1>Jackson T-Shirts</h1>
-    </header>
+<div class="container" id="Inicio"> </div>
+<header>
+    <h1>Jackson T-Shirts</h1>
+</header>
 
-    <nav>
-        <ul class="contenedor">
-            <li>
-                <a href="index.html">Inicio</a>
-            </li>
-            <li>
-                <a href="atencion_al_cliente.html">Atención al Cliente</a>
-            </li>
-            <li>
-                <a href="about_us.html">Sobre Nosotros
-                </a>
-            </li>
-        </ul>
-    </nav>
+<nav>
+    <ul class="contenedor">
+        <li><a th:href="@{/jackson}">Inicio</a></li>
+        <li><a th:href="@{/atencion_al_cliente}">Atención al Cliente</a></li>
+        <li><a th:href="@{/about_us}">Sobre Nosotros</a></li>
+    </ul>
+</nav>
 
-    <main>
-        <div class="container">
+<main>
+    <div class="container">
+        <section class="destacados">
+            <h2>Nuestras Camisetas Destacadas</h2>
+            <div class="productos">
 
-            <section class="destacados">
-                <h2>Nuestras Camisetas Destacadas</h2>
-                <div class="productos">
-                    <div class="producto">
-                        <img src="../static/images/camiseta1.jpg" alt="Camiseta Básica">
-                        <h3>Camiseta Básica</h3>
-                        <p>€19.99</p>
-                        <a href="sorry.html">
-                        <button class="cta" href="#Inicio">
-                            <span class="hover-underline-animation">Comprar</span>
-                          </button>
-                        </a>
-                    </div>    
-
-                    <div class="producto">
-                        <img src="../static/images/camiseta2.jpg" alt="Camiseta Deportiva">
-                        <h3>Camiseta Deportiva</h3>
-                        <p>€24.99</p>
-                        <a href="sorry.html">
-                        <button class="cta">
-                            <span class="hover-underline-animation">Comprar</span>
-                          </button>
-                        </a>
-                    </div>
-                    
-                    <div class="producto">
-                        <img src="../static/images/camiseta3.jpg" alt="Camiseta Estampada">
-                        <h3>Camiseta Estampada</h3>
-                        <p>€29.99</p>
-                        <a href="sorry.html">
-                        <button class="cta">
-                            <span class="hover-underline-animation"> Comprar </span>
-                          </button>
-                        </a>
-                    </div>
-                    <div class="producto">
-                        <img src="../static/images/camiseta4.jpg" alt="Camiseta Neo Pulse">
-                        <h3>Camiseta Neo Pulse</h3>
-                        <p>€39.99</p>
-                        <a href="sorry.html">
-                        <button class="cta">
-                            <span class="hover-underline-animation"> Comprar</span>
-                            
-                        </button>
+                <div class="producto">
+                    <img th:src="@{/images/camiseta1.jpg}" alt="Camiseta Básica">
+                    <h3>Camiseta Básica</h3>
+                    <p>€19.99</p>
+                    <a th:href="@{/sorry.html}">
+                        <button class="cta"><span class="hover-underline-animation">Comprar</span></button>
                     </a>
-                    </div>
-                    <div class="producto">
-                        <img src="../static/images/camiseta5.jpg" alt="Camiseta Bloom Esence">
-                        <h3>Camiseta Bloom Esence</h3>
-                        <p>€25.59</p>
-                        <a href="sorry.html">
-                        <button class="cta">
-                            <span class="hover-underline-animation"> Comprar</span>
-                            
-                        </button>
-                    </a>
-                    </div>
-
-                    <div class="producto">
-                        <img src="../static/images/camiseta6.jpg" alt="Camiseta Energy Maze">
-                        <h3>Camiseta Energy Maze</h3>
-                        <p>€30.00</p>
-                        <a href="sorry.html">
-                        <button class="cta">
-                            <span class="hover-underline-animation"> Comprar</span>
-                            
-                        </button>
-                    </a>
-                    </div>
-
-                    <div class="producto">
-                        <img src="../static/images/camiseta7.jpg" alt="Camiseta Pink Luxe">
-                        <h3>Camiseta Pink Luxe</h3>
-                        <p>€24.60</p>
-                        <a href="sorry.html">
-                        <button class="cta">
-                            <span class="hover-underline-animation"> Comprar</span>
-                            
-                        </button>
-                    </a>
-                    </div>
                 </div>
-            </section>
-        </div>
-    </main>
+
+                <div class="producto">
+                    <img th:src="@{/images/camiseta2.jpg}" alt="Camiseta Deportiva">
+                    <h3>Camiseta Deportiva</h3>
+                    <p>€24.99</p>
+                    <a th:href="@{/sorry.html}">
+                        <button class="cta"><span class="hover-underline-animation">Comprar</span></button>
+                    </a>
+                </div>
+
+                <div class="producto">
+                    <img th:src="@{/images/camiseta3.jpg}" alt="Camiseta Estampada">
+                    <h3>Camiseta Estampada</h3>
+                    <p>€29.99</p>
+                    <a th:href="@{/sorry.html}">
+                        <button class="cta"><span class="hover-underline-animation">Comprar</span></button>
+                    </a>
+                </div>
+
+                <div class="producto">
+                    <img th:src="@{/images/camiseta4.jpg}" alt="Camiseta Neo Pulse">
+                    <h3>Camiseta Neo Pulse</h3>
+                    <p>€39.99</p>
+                    <a th:href="@{/sorry.html}">
+                        <button class="cta"><span class="hover-underline-animation">Comprar</span></button>
+                    </a>
+                </div>
+
+                <div class="producto">
+                    <img th:src="@{/images/camiseta5.jpg}" alt="Camiseta Bloom Esence">
+                    <h3>Camiseta Bloom Esence</h3>
+                    <p>€25.59</p>
+                    <a th:href="@{/sorry.html}">
+                        <button class="cta"><span class="hover-underline-animation">Comprar</span></button>
+                    </a>
+                </div>
+
+                <div class="producto">
+                    <img th:src="@{/images/camiseta6.jpg}" alt="Camiseta Energy Maze">
+                    <h3>Camiseta Energy Maze</h3>
+                    <p>€30.00</p>
+                    <a th:href="@{/sorry.html}">
+                        <button class="cta"><span class="hover-underline-animation">Comprar</span></button>
+                    </a>
+                </div>
+
+                <div class="producto">
+                    <img th:src="@{/images/camiseta7.jpg}" alt="Camiseta Pink Luxe">
+                    <h3>Camiseta Pink Luxe</h3>
+                    <p>€24.60</p>
+                    <a th:href="@{/sorry.html}">
+                        <button class="cta"><span class="hover-underline-animation">Comprar</span></button>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </div>
+</main>
 </body>
 </html>

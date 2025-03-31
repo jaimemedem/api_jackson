@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorry :[ </title>
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <title>Sorry :(</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <h1>¡Lo sentimos mucho!</h1>
-    <h2>Todavía no está disponible la venta de nuestras camisetas</h2>
-    <h4>Coming soon!!</h4>
-    <p><video src="../static/images/videp.mp4" controls height="200"></video></p>
-    <p>
-        Para que no se vaya usted triste de nuestra web, aqui tiene un video que le alegrará un poco
-    </p>
-    <a href="index.html" class="btn-volver">
-        Volver a la pantalla principal
-    </a>
+<h1>¡Lo sentimos mucho!</h1>
+<h2>Todavía no está disponible la venta de nuestras camisetas</h2>
+<h4>Coming soon!!</h4>
 
+<p>
+    <video controls height="200">
+        <source th:src="@{/videos/videp.mp4}" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+</p>
+
+<p>
+    Para que no se vaya usted triste de nuestra web, aquí tiene un video que le alegrará un poco.
+</p>
+
+<a th:href="@{/}" class="btn-volver">Volver a la pantalla principal</a>
 </body>
-
 </html>
