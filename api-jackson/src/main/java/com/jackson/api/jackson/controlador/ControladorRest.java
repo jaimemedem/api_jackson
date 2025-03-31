@@ -3,6 +3,7 @@ package com.jackson.api.jackson.controlador;
 import com.jackson.api.jackson.modelo.ModeloFormularioContacto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -12,19 +13,21 @@ public class ControladorRest {
 
     private final Map<String, ModeloFormularioContacto> formularios = new HashMap<>();
 
-    @PostMapping("/atencion_al_cliente/mensaje")
+    @PostMapping("/api/mensajes")
     @ResponseStatus(HttpStatus.CREATED)
     public ModeloFormularioContacto crea(@RequestBody ModeloFormularioContacto formularioContacto) {
         formularios.put(formularioContacto.email(), formularioContacto);
         return formularioContacto;
     }
 
-    @GetMapping("/mensajes")
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("api/mensajes/all")
     public Collection<ModeloFormularioContacto> obtenerTodos() {
         return formularios.values();
     }
 
-    @DeleteMapping("/api/contactos/{email}")
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/api/mensajes/{email}")
     public ResponseEntity<String> eliminarContacto(@PathVariable String email) {
         if (formularios.containsKey(email)) {
             formularios.remove(email);

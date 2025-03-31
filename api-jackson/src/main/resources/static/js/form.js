@@ -1,9 +1,7 @@
 function deleteContacto(email, row) {
-  fetch(`/api/contactos/${email}`, { method: 'DELETE' })
+  fetch(`/api/mensajes/${email}`, { method: 'DELETE' })
     .then(r => {
-      if (!r.ok) {
-        throw new Error('Error al eliminar')
-      }
+      if (!r.ok) throw new Error('Error al eliminar')
       return r.text()
     })
     .then(() => {
@@ -13,7 +11,7 @@ function deleteContacto(email, row) {
 }
 
 function loadContactos() {
-  fetch('/api/contactos')
+  fetch('/api/mensajes/all')
     .then(response => response.json())
     .then(data => {
       const tbody = document.querySelector('#tablaContactos tbody')
@@ -36,9 +34,12 @@ function loadContactos() {
         const tdAcciones = document.createElement('td')
         const btnEliminar = document.createElement('button')
         btnEliminar.textContent = 'Eliminar'
+
+        // 'deleteContacto(contacto.email, row)' pasa el email y la fila
         btnEliminar.addEventListener('click', () => {
           deleteContacto(contacto.email, row)
         })
+
         tdAcciones.appendChild(btnEliminar)
 
         row.appendChild(tdName)
@@ -52,4 +53,29 @@ function loadContactos() {
     .catch(error => console.error(error))
 }
 
-document.getElementById('btnLoad').addEventListener('click', loadContactos)
+function enviarContacto() {
+  const name = document.getElementById('name').value
+  const email = document.getElementById('email').value
+  const number = document.getElementById('number').value
+  const mensaje = document.getElementById('mensaje').value
+
+  const data = { name, email, number, mensaje }
+
+  fetch('/api/mensajes', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+    .then(r => {
+      if (!r.ok) throw new Error('Error al enviar contacto')
+      return r.json()
+    })
+    .then(resultado => {
+      console.log('Contacto creado:', resultado)
+      document.getElementById('name').value = ''
+      document.getElementById('email').value = ''
+      document.getElementById('number').value = ''
+      document.getElementById('mensaje').value = ''
+    })
+    .catch(err => console.error(err))
+}

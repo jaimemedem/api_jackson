@@ -6,6 +6,7 @@
     <title>Jackson - Atención al Cliente</title>
     <!-- Se añade href de fallback para garantizar la carga del CSS -->
     <link rel="stylesheet" th:href="@{/css/styles.css}" href="/css/styles.css">
+    <script th:src="@{/js/form.js}"></script>
 </head>
 <body>
 <div class="container" id="Inicio"></div>
@@ -43,16 +44,16 @@
             <textarea id="mensaje" rows="4" th:field="*{mensaje}" required></textarea>
         </p>
         <p>
-            <input type="submit" value="Enviar">
+            <input type="submit" value="Enviar" onclick="enviarContacto()">
         </p>
-        <!-- Mostrar errores dentro del contexto del formulario -->
         <ul th:if="${#fields.hasErrors()}">
             <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
         </ul>
     </form>
-    <!-- Mostrar mensaje de éxito fuera del formulario -->
     <p th:if="${exito}" th:text="${exito}"></p>
 </div>
-    <a th:href="@{/mensajes}">Inicio</a>
+    <botton id="boton_mensaje">
+    <a th:href="@{/mensaje}">Inicio</a>
+    </botton>
 </body>
 </html>

@@ -11,7 +11,6 @@ public record ModeloFormularioContacto (
        @Email(message = "Introduzca un email válido")
        @NotBlank(message = "El emai no puede estar vacío")
        String email,
-       @Digits(message = "introduzca un número", integer = 0, fraction = 0)
        @NotBlank(message = "El número no puede estar vacío")
        String number,
        @NotBlank(message = "El mensaje nopuede estar vacío")

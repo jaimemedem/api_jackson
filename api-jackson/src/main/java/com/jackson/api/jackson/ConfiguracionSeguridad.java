@@ -21,7 +21,7 @@ public class ConfiguracionSeguridad {
         http.authorizeHttpRequests((authorize) -> authorize.anyRequest().authenticated())
                 .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults())
-                .csrf(csrf -> csrf.ignoringRequestMatchers("/jackson/**"));
+                .csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"));
         return http.build();
     }
 
@@ -36,6 +36,6 @@ public class ConfiguracionSeguridad {
                 .password("admin")
                 .roles("ADMIN")
                 .build();
-        return new InMemoryUserDetailsManager(user);
+        return new InMemoryUserDetailsManager(user, admin);
     }
 }

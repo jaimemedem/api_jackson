@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Contactos</title>
-    <script th:src="@{/js/script.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" href="/css/styles.css">
+    <script th:src="@{/js/form.js}"></script>
 </head>
 <body>
 <h1>Mensajes</h1>
-<button id="btnLoad">Cargar</button>
+<button id="btnLoad" onclick="loadContactos()">Cargar</button>
 <table id="tablaContactos">
     <thead>
     <tr>
@@ -22,3 +23,4 @@
 </table>
 </body>
 </html>
+

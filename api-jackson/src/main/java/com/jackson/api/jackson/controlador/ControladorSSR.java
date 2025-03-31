@@ -30,10 +30,10 @@ public class ControladorSSR {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/mensajes")
+    @GetMapping("/mensaje")
     public String mostrarMensajes(Model model)
     {
-        return "mensajes";
+        return "contacto";
     }
 
 
