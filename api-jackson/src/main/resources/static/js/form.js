@@ -61,17 +61,33 @@ function enviarContacto() {
 
   const data = { name, email, number, mensaje }
 
-  fetch('/api/mensajes', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  })
+
+  fetch(`/api/mensajes/${email}`, { method: 'GET' })
     .then(r => {
-      if (!r.ok) throw new Error('Error al enviar contacto')
-      return r.json()
+      if (r.ok) {
+        return fetch(`/api/mensajes/${email}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+      } else if (r.status === 404) {
+        return fetch('/api/mensajes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+      } else {
+        throw new Error(`Error al consultar: ${r.status}`)
+      }
+    })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`Error al enviar: ${res.status}`)
+      }
+      return res.json()
     })
     .then(resultado => {
-      console.log('Contacto creado:', resultado)
+      console.log('Contacto guardado:', resultado)
       document.getElementById('name').value = ''
       document.getElementById('email').value = ''
       document.getElementById('number').value = ''
@@ -79,3 +95,4 @@ function enviarContacto() {
     })
     .catch(err => console.error(err))
 }
+

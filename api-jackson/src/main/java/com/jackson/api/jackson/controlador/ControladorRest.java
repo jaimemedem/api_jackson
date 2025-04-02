@@ -26,6 +26,17 @@ public class ControladorRest {
         return formularios.values();
     }
 
+    @PutMapping("api/mensajes/{email}")
+    public ModeloFormularioContacto actualiza(@RequestBody ModeloFormularioContacto formularioContacto)
+    {
+        formularios.remove(formularioContacto.email());
+        formularios.put(formularioContacto.email(), formularioContacto);
+        return formularios.get(formularioContacto.email());
+
+    }
+
+
+
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/api/mensajes/{email}")
     public ResponseEntity<String> eliminarContacto(@PathVariable String email) {
